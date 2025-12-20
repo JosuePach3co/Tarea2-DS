@@ -1,18 +1,24 @@
 package com.example.patrones.decorator;
 
-public class DesayunoDecorator extends ServicioDecorator {
+public class DesayunoDecorator extends HabitacionDecorator {
+    private double costoDesayuno;
 
-    public DesayunoDecorator(ServicioTuristico servicio) {
-        super(servicio);
+    public DesayunoDecorator(IHabitacion habitacion, double costoDesayuno) {
+        super(habitacion);
+        if (habitacion == null) {
+            throw new NullPointerException("La habitación no puede ser null");
+        }
+        this.costoDesayuno = costoDesayuno;
     }
 
     @Override
-    public String getDescripcion() {
-        return servicio.getDescripcion() + " + Desayuno incluido";
+    public double calcularPrecio() {
+        return habitacion.calcularPrecio() + costoDesayuno;
     }
 
     @Override
-    public double getCosto() {
-        return servicio.getCosto() + 8.0; // costo del desayuno
+    public void mostrarDetalles() {
+        habitacion.mostrarDetalles();
+        System.out.println(" + Desayuno incluido ($" + costoDesayuno + ")");
     }
 }
