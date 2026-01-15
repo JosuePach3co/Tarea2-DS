@@ -40,4 +40,3 @@ public class PaqueteTuristico implements IPaqueteTuristico {
 
 
 }
-//solo reviso que sea el codigo
