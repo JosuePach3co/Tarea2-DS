@@ -1,9 +1,12 @@
 package com.example.soporte;
 
+import java.util.logging.Logger;
+
 import com.example.enums.EstadoIncidente;
 import com.example.usuarios_y_roles.Usuario;
 
 public class Incidente {
+    private static final Logger logger = Logger.getLogger(Incidente.class.getName());
 
     private int id;
     private Usuario usuarioReportante; 
@@ -53,13 +56,13 @@ public class Incidente {
 
     public void resolverIncidente(){
         this.estado= EstadoIncidente.RESUELTO;
-        System.out.println("Incidente resuelto");
+        logger.info("Incidente resuelto");
 
     }
 
-    public void escalar(){
+    public void escalarIncidente(){
         this.estado= EstadoIncidente.ESCALADO;
-        System.out.println("Incidente escalado");
+        logger.info("Incidente escalado");
 
     }
     
