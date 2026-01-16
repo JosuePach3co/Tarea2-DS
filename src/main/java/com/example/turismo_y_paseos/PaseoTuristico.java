@@ -1,9 +1,9 @@
 package com.example.turismo_y_paseos;
 
-import java.util.logging.Logger;
-
 import com.example.enums.EstadoPaseo;
 import com.example.interfaces.Reservable;
+
+import java.util.logging.Logger;
 
 public class PaseoTuristico implements Reservable {
     private static final Logger logger = Logger.getLogger(PaseoTuristico.class.getName());

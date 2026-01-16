@@ -1,9 +1,9 @@
 package com.example.turismo_y_paseos;
 
-import java.util.logging.Logger;
-
 import com.example.hospedaje.Hospedaje;
 import com.example.patrones.decorator.IPaqueteTuristico;
+
+import java.util.logging.Logger;
 
 public class PaqueteTuristico implements IPaqueteTuristico {
     private static final Logger logger = Logger.getLogger(PaqueteTuristico.class.getName());
