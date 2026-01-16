@@ -2,14 +2,16 @@
 package com.example.patrones.factory;
 
 import com.example.enums.EstadoHabitacion;
+import com.example.enums.TipoHabitacion;
 import com.example.patrones.decorator.IHabitacion;
 
 public abstract class Habitacion implements IHabitacion {
     protected int idHotel;
     protected int numero;
     protected EstadoHabitacion estado; // disponible, reservada, ocupada, mantenimiento
+    protected TipoHabitacion tipo;
 
-    public Habitacion(int idHotel, int numero) {
+    protected Habitacion(int idHotel, int numero,TipoHabitacion tipo) {
         if (idHotel < 0) {
             throw new IllegalArgumentException("El id del hotel no puede ser negativo");
         }
@@ -19,7 +21,10 @@ public abstract class Habitacion implements IHabitacion {
         this.idHotel = idHotel;
         this.numero = numero;
         this.estado = EstadoHabitacion.DISPONIBLE;
+        this.tipo= tipo;
     }
+    
+  
 
     public boolean estaDisponible() {
         return estado.equals(EstadoHabitacion.DISPONIBLE);

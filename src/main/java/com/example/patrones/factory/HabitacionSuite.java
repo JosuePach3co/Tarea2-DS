@@ -1,18 +1,19 @@
 package com.example.patrones.factory;
 
+import com.example.enums.TipoHabitacion;
+
 public class HabitacionSuite extends Habitacion {
     public HabitacionSuite(int idHotel, int numero) {
-        super(idHotel, numero);
-    }
-
-    @Override
-    public void mostrarDetalles() {
-        System.out.println("Habitación SUITE Nº " + numero + " - Hotel ID: " + idHotel + " - Estado: " + estado);
+        super(idHotel, numero, TipoHabitacion.SUITE);
     }
 
     @Override
     public double calcularPrecio() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'calcularPrecio'");
+        return 180.00;
+    }
+
+    @Override
+    public void mostrarDetalles() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
