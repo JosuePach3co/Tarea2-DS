@@ -1,25 +1,47 @@
 package com.example.turismo_y_paseos;
 
+import java.util.logging.Logger;
+
 import com.example.enums.EstadoPaseo;
 import com.example.interfaces.Reservable;
 
 public class PaseoTuristico implements Reservable {
+    private static final Logger logger = Logger.getLogger(PaseoTuristico.class.getName());
     private String nombre;
     private EstadoPaseo estado; // disponible, agotado, cancelado
-    private double precio;
+    private double precioBase;
 
-    public PaseoTuristico(String nombre, double precio) {
+    public PaseoTuristico(String nombre, double precioBase) {
         this.nombre = nombre;
-        this.precio = precio;
+        this.precioBase = precioBase;
         this.estado = EstadoPaseo.DISPONIBLE;
     }
 
+    // Método preparado para lógica de negocio futura
     public double calcularPrecio() {
-        return precio;
+        return precioBase;
     }
 
     public boolean verificarDisponibilidad() {
-        if(estado.equals(EstadoPaseo.DISPONIBLE) ) return true;
-        else{return false;}    
+        return estado == EstadoPaseo.DISPONIBLE;
+    }
+
+    public void mostrarDetalles() {
+        logger.info("Paseo turístico: " + nombre);
+        logger.info("Precio: $" + precioBase);
+        logger.info("Estado: " + estado);
+    }
+
+    // Getters para encapsular campos
+    public String getNombre() {
+        return nombre;
+    }
+
+    public EstadoPaseo getEstado() {
+        return estado;
+    }
+
+    public double getPrecioBase() {
+        return precioBase;
     }
 }

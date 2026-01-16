@@ -1,9 +1,12 @@
 package com.example.turismo_y_paseos;
 
+import java.util.logging.Logger;
+
 import com.example.hospedaje.Hospedaje;
 import com.example.patrones.decorator.IPaqueteTuristico;
 
 public class PaqueteTuristico implements IPaqueteTuristico {
+    private static final Logger logger = Logger.getLogger(PaqueteTuristico.class.getName());
     private Hospedaje hospedaje;
     private PaseoTuristico paseo;
     private double descuento;
@@ -16,12 +19,10 @@ public class PaqueteTuristico implements IPaqueteTuristico {
 
     @Override
     public double calcularPrecio() {
-        // Usar el precio decorado de la habitación
-        double precioHabitacion = 0.0;
         if (hospedaje.getHabitacion() != null) {
-            precioHabitacion = hospedaje.getHabitacion().calcularPrecio();
+            return hospedaje.getHabitacion().calcularPrecio() + paseo.calcularPrecio() - descuento;
         }
-        return precioHabitacion + paseo.calcularPrecio() - descuento;
+        else{ return  paseo.calcularPrecio() - descuento; }
     }
 
     @Override
@@ -30,12 +31,14 @@ public class PaqueteTuristico implements IPaqueteTuristico {
     }
     @Override
     public void mostrarDetalles() {
-        System.out.println("Paquete turístico:");
-        if (hospedaje.getHabitacion() != null) {
-            hospedaje.getHabitacion().mostrarDetalles();
+        logger.info("Paquete turístico:");
+        if (hospedaje != null) {
+            hospedaje.mostrarDetalles();
         }
-        System.out.println("Incluye paseo: " + paseo);
-        System.out.println("Descuento aplicado: $" + descuento);
+        if (paseo != null) {
+            paseo.mostrarDetalles();
+        }
+        logger.info("Descuento aplicado: $" + descuento);
     }
 
 
