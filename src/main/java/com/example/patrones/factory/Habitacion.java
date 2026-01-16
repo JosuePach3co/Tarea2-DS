@@ -1,10 +1,10 @@
 package com.example.patrones.factory;
 
-import java.util.logging.Logger;
-
 import com.example.enums.EstadoHabitacion;
 import com.example.enums.TipoHabitacion;
 import com.example.patrones.decorator.IHabitacion;
+
+import java.util.logging.Logger;
 
 public abstract class Habitacion implements IHabitacion {
     private static final Logger logger = Logger.getLogger(Habitacion.class.getName());
@@ -25,8 +25,6 @@ public abstract class Habitacion implements IHabitacion {
         this.estado = EstadoHabitacion.DISPONIBLE;
         this.tipo= tipo;
     }
-    
-  
 
     public boolean estaDisponible() {
         return estado.equals(EstadoHabitacion.DISPONIBLE);
