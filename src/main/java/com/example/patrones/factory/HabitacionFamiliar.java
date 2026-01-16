@@ -10,10 +10,7 @@ public class HabitacionFamiliar extends Habitacion {
     @Override
     public double calcularPrecio() {
         return 120.00;
+
     }
 
-    @Override
-    public void mostrarDetalles() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }

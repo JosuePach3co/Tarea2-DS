@@ -28,6 +28,7 @@ public class Hotel {
         }
         habitaciones.add(hab);
     }
+
     public List<Habitacion> getHabitaciones() {
         return habitaciones;
     }

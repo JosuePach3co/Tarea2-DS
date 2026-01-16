@@ -12,8 +12,5 @@ public class HabitacionEstandar extends Habitacion {
         return 80.0;
     }
 
-    @Override
-    public void mostrarDetalles() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
 }

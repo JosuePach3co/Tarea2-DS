@@ -1,5 +1,7 @@
 package com.example.usuarios_y_roles;
 
+import java.util.logging.Logger;
+
 import com.example.enums.EstadoIncidente;
 import com.example.interfaces.GestorDeAccion;
 import com.example.soporte.Incidente;
